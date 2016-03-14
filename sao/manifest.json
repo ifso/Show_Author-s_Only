@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+
+  "name": "Show Author's Only",
+  "version": "2016.3.12.1",
+  "description": "Soft, try me. For threads of bbs.hupu.com",
+  "icons": { 
+    "16": "icons/icon_orange_16.png", 
+    "48": "icons/icon_orange_48.png", 
+    "128": "icons/icon_orange_128.png" 
+  },
+  "options_page": "popup/index.html",
+
+  "permissions": [ 
+    "tabs", 
+    "declarativeContent" 
+  ],
+
+  "background": { 
+    "persistent": false, // set background page as an event page
+    "scripts": ["background.js"] 
+  },
+
+  "content_scripts": [{
+    "matches": ["http://bbs.hupu.com/*.html"],
+    "js": ["content_script.js"]// ,
+    // "run_at": "document_end"
+  }],
+
+  // for regular background; icon is always displayed
+  // "browser_action": {
+  //   "default_title": "Try me, soft.",
+  //   "default_icon": { "38": "icons/icon_blue_38.png" },
+  //   "default_popup": "popup/index.html"
+  // },
+
+  // for event page
+  "page_action": {
+    "default_title": "Thx to Stack Overflow. JR-28",
+    "default_icon": { 
+      "19": "icons/icon_blue_19.png",
+      "38": "icons/icon_blue_38.png" 
+    }// ,
+    // "default_popup": "popup/index.html"
+  }
+}
